@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+  <persistence-unit name="DISTRIBUIDOSRMIPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>InterfaceGrafica.Cadastros.Destinos</class>
+    <class>InterfaceGrafica.Cadastros.Passagem</class>
+    <class>Database.Passagens</class>
+    <class>Database.Locais</class>
+    <class>Database.Hoteis</class>
+    <class>Database.Quartoshotel</class>
+    <class>Database.Pacotesturisticos</class>
+    <class>Database.Vendasdehospedagem</class>
+    <class>Database.Itensvendadehospedagem</class>
+    <class>InterfaceGrafica.Operacoes.Itensvendadehospedagem</class>
+    <class>Database.Interesses</class>
+    <class>Database.Vendasdepassagem</class>
+    <class>Database.Itensvendadepassagem</class>
+    <class>InterfaceGrafica.Operacoes.Itensvendadepassagem</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/DISTRIBUIDOSRMI"/>
+      <property name="javax.persistence.jdbc.user" value="postgres"/>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="teste"/>
+    </properties>
+  </persistence-unit>
+  <persistence-unit name="samplePU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>InterfaceGrafica.Cadastros.DiscountCode</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>
+      <property name="javax.persistence.jdbc.user" value="app"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.jdbc.password" value="app"/>
+    </properties>
+  </persistence-unit>
+</persistence>

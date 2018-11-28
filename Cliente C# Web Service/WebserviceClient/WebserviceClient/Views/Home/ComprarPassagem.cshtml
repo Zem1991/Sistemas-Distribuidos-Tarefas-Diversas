@@ -1,0 +1,126 @@
+﻿@using WebserviceClient.DAL.Passagem;
+@using WebserviceClient.Controllers;
+@{
+    ViewBag.Title = "Detalhes da Passagem";
+
+    string aux;
+}
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 heading">
+        <h1 class="page-header"><i class="im-file"></i>Comprar a Passagem</h1>
+    </div>
+</div>
+<div class="outlet">
+    <div class="row">
+        <div class="col-lg-8 col-md-8">
+            <div class="panel panel-default plain">
+                <div class="panel-heading white-bg">
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+
+                        <tr>
+                            <td align="right">Data Ida</td>
+                            <td align="left">
+                                @ViewBag.passagem.DataIda;
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td align="right">Data Volta</td>
+                            <td align="left">
+                                @ViewBag.passagem.DataVolta;
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right">Local Destino</td>
+                            <td align="left">
+                                @ViewBag.passagem.NomeDestino;
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right">Local Origem</td>
+                            <td align="left">
+                                @ViewBag.passagem.NomeOrigem;
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right">Preco</td>
+                            <td align="left">
+                                @ViewBag.passagem.Preco;
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right">Tipo</td>
+                            <td align="left">
+                                @if (ViewBag.passagem.Tipo == 0)
+                                {
+                                    aux = "Só Ida";
+                                }
+                                else
+                                {
+                                    aux = "Ida e Volta";
+                                }
+                                @aux
+                            </td>
+                        </tr>
+                    </table>
+
+                    @using (Html.BeginForm("CadastrarCompra", "Home", FormMethod.Post, new { @class = "form-horizontal group-border hover-stripped"}))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        
+
+                        <div class=form-group>
+                            <label class="col-lg-2 col-md-2 control-label">Número Cartão</label>
+                            <div class="col-lg-5 col-md-5">
+                                <input class="form-control limitInput" id="NumeroCartao" name="NumeroCartao" type="number" maxlength="20" value="">
+                            </div>
+                        </div>
+
+                        <div class=form-group>
+                            <label class="col-lg-2 col-md-2 control-label">Nome do Cliente</label>
+                            <div class="col-lg-5 col-md-5">
+                                <input class="form-control limitInput" id="NomeCliente" name="NomeCliente" type="text" maxlength="50" value="">
+                            </div>
+                        </div>
+
+                        <div class=form-group>
+                            <label class="col-lg-2 col-md-2 control-label">Número de Parcelas</label>
+                            <div class="col-lg-5 col-md-5">
+                                <input class="form-control limitInput" id="NumeroParcelas" name="NumeroParcelas" type="number" maxlength="20" value="">
+                            </div>
+                        </div>
+
+                        <div class=form-group>
+                            <label class="col-lg-2 col-md-2 control-label">Número de Pessoas</label>
+                            <div class="col-lg-5 col-md-5">
+                                <input class="form-control limitInput" id="NumeroPessoas" name="NumeroPessoas" type="number" maxlength="7" value="">
+                            </div>
+                        </div>
+
+                        <div class=form-group>
+                            <label class="col-lg-2 col-md-2 control-label">Valor</label>
+                            <div class="col-lg-5 col-md-5">
+                                <input class="form-control limitInput" id="Valor" name="Valor" type="number" maxlength="7" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Cadastrar" id="Cadastrar" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Inicio Cliente";
+}
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 heading">
+        <h1 class="page-header"><i class="ec-list"></i> Bem Vindo </h1>
+    </div>
+</div>
+<div class="outlet">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="panel panel-default plain">
+                <div class="panel-heading white-bg">
+                </div>
+                <div class="panel-body">
+
+                    @if (ViewBag.Exception != null)
+                    {
+                        <div class="col-lg-12 col-md-12">
+                            <div class="panel panel-danger panel-closed toggle panelRefresh panelClose showControls">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"> Erro ao realizar operação, tente novamente! </h4>
+                                </div>
+                                <div class="panel-body">
+                                    <font size="-2"> @ViewBag.Exception </font>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <table class="table display" id="datatable">
+                        <tr>
+                            <td>
+
+                                <a href="~/Home/Passagens/#" class="btn btn-info btn-alt modal-link">
+                                    <i class="im-airplane"></i> Passagens
+                                </a>
+
+                                @*<a href="~/Home/Hoteis/#" class="btn btn-info btn-alt modal-link">
+                                    <i class="en-house"></i> Hoteis
+                                </a>
+
+                                <a href="~/Home/PacoteTuristico/#" class="btn btn-info btn-alt modal-link">
+                                    <i class="im-list"></i> Pacote Turistico
+                                </a>*@
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
